@@ -2,6 +2,9 @@
 
 ![units-test](https://github.com/SnowCait/qrcode/workflows/units-test/badge.svg)
 
+This action generates a QR Code file.  
+You can use the generated QR Code anywhere - upload to slack, commit to git, etc.
+
 ## Usage
 
 ```yaml
