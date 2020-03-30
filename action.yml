@@ -9,7 +9,7 @@ inputs:
       Path where to save the file.
       Recognized extensions are png, svg, txt.
     required: true
-    default: 'out.png'
+    default: 'qrcode.png'
 runs:
   using: 'node12'
   main: 'dist/index.js'
