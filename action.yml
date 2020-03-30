@@ -1,4 +1,4 @@
-name: 'QRCode'
+name: 'QR Code Generator'
 description: 'QR Code Generator.'
 inputs:
   text:
