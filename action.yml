@@ -5,6 +5,15 @@ inputs:
     description: 'number of milliseconds to wait'
     required: true
     default: '1000'
+  text:
+    description: 'Text to encode.'
+    required: true
+  path:
+    description: |
+      Path where to save the file.
+      Recognized extensions are png, svg, txt.
+    required: true
+    default: 'out.png'
 outputs:
   time: # output will be available to future steps 
     description: 'The message to output'
