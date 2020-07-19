@@ -1,6 +1,6 @@
 # QR Code Generator
 
-![units-test](https://github.com/SnowCait/qrcode/workflows/units-test/badge.svg)
+![units-test](https://github.com/snow-actions/qrcode/workflows/units-test/badge.svg)
 
 This action generates a QR Code file.  
 You can use the generated QR Code anywhere - upload to slack, commit to git, etc.
@@ -8,9 +8,9 @@ You can use the generated QR Code anywhere - upload to slack, commit to git, etc
 ## Usage
 
 ```yaml
-uses: SnowCait/qrcode@v1.0.0
+uses: snow-actions/qrcode@v1.0.0
 with:
-  text: 'https://github.com/SnowCait/qrcode'
+  text: 'https://github.com/snow-actions/qrcode'
   path: 'qrcode.png'
 ```
 
@@ -30,9 +30,9 @@ jobs:
     - uses: actions/checkout@v2
       with:
         ref: qrcode
-    - uses: SnowCait/qrcode@v1.0.0
+    - uses: snow-actions/qrcode@v1.0.0
       with:
-        text: https://github.com/SnowCait/qrcode
+        text: https://github.com/snow-actions/qrcode
         path: qrcode.png
     - name: You can commit it.
       run: |

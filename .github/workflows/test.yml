@@ -22,4 +22,4 @@ jobs:
     - uses: actions/checkout@v1
     - uses: ./
       with:
-        text: 'https://github.com/SnowCait/qrcode'
+        text: 'https://github.com/snow-actions/qrcode'
