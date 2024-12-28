@@ -8,7 +8,7 @@ You can use the generated QR Code anywhere - upload to slack, commit to git, etc
 ## Usage
 
 ```yaml
-uses: snow-actions/qrcode@v1.0.0
+uses: snow-actions/qrcode@v1.2.0
 with:
   text: 'https://github.com/snow-actions/qrcode'
   path: 'qrcode.png'
@@ -30,7 +30,7 @@ jobs:
     - uses: actions/checkout@v4
       with:
         ref: qrcode
-    - uses: snow-actions/qrcode@v1.0.0
+    - uses: snow-actions/qrcode@v1.2.0
       with:
         text: https://github.com/snow-actions/qrcode
         path: qrcode.png
