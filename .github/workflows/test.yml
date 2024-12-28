@@ -23,3 +23,4 @@ jobs:
       - uses: ./
         with:
           text: "https://github.com/snow-actions/qrcode"
+      - run: test -f qrcode.png
