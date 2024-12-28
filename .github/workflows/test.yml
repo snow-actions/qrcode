@@ -1,25 +1,26 @@
-name: "units-test"
+name: "Test"
 on:
   pull_request:
   push:
     branches:
       - master
-      - 'releases/*'
+      - "releases/*"
 
 jobs:
-  # unit tests
-  units:
+  unit-test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - run: npm ci
-    - run: npm test
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm test
 
-  # test action works running from the graph  
-  test:
+  integration-test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: ./
-      with:
-        text: 'https://github.com/snow-actions/qrcode'
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run package
+      - uses: ./
+        with:
+          text: "https://github.com/snow-actions/qrcode"
+      - run: test -f qrcode.png
