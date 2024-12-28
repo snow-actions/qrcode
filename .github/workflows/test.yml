@@ -18,6 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npm run package
       - uses: ./
         with:
           text: "https://github.com/snow-actions/qrcode"
