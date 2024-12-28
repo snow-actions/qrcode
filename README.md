@@ -1,6 +1,6 @@
 # QR Code Generator
 
-![units-test](https://github.com/snow-actions/qrcode/workflows/units-test/badge.svg)
+[![Test](https://github.com/snow-actions/qrcode/actions/workflows/test.yml/badge.svg)](https://github.com/snow-actions/qrcode/actions/workflows/test.yml)
 
 This action generates a QR Code file.  
 You can use the generated QR Code anywhere - upload to slack, commit to git, etc.
@@ -14,7 +14,7 @@ with:
   path: 'qrcode.png'
 ```
 
-## Examples
+## Example
 
 ```yaml
 name: QRCode
@@ -27,17 +27,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         ref: qrcode
     - uses: snow-actions/qrcode@v1.0.0
       with:
         text: https://github.com/snow-actions/qrcode
         path: qrcode.png
+    - uses: snow-actions/git-config-user@v1.0.0
     - name: You can commit it.
       run: |
-        git config --global user.email "you@example.com"
-        git config --global user.name "Your Name"
         git add qrcode.png
         git commit -m "QR Code"
         git push origin qrcode
