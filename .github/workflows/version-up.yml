@@ -35,7 +35,7 @@ jobs:
         env:
           SEMANTIC: ${{ github.event.inputs.semantic }}
       - uses: snow-actions/git-config-user@v1.0.0
-      - uses: actions/create-github-app-token@v1
+      - uses: actions/create-github-app-token@v2
         id: app-token
         with:
           app-id: ${{ secrets.APP_ID }}
