@@ -13,13 +13,23 @@ on:
           - minor
           - patch
 
+permissions:
+  contents: write
+
 jobs:
   version-up:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
     steps:
+      - uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
       - uses: actions/checkout@v6
+        with:
+          token: ${{ steps.app-token.outputs.token }}
       - name: Package
         run: |
           npm ci
@@ -35,11 +45,6 @@ jobs:
         env:
           SEMANTIC: ${{ github.event.inputs.semantic }}
       - uses: snow-actions/git-config-user@v1.0.0
-      - uses: actions/create-github-app-token@v3
-        id: app-token
-        with:
-          app-id: ${{ secrets.APP_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
       - name: Commit & PR
         run: |
           set -x
@@ -51,4 +56,3 @@ jobs:
           gh pr create --base ${GITHUB_REF_NAME} --head ${branch} --assignee ${GITHUB_ACTOR} --title ${VERSION} --body ''
         env:
           VERSION: ${{ steps.version.outputs.version }}
-          GH_TOKEN: ${{ steps.app-token.outputs.token }}
